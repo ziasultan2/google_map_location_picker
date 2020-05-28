@@ -125,18 +125,9 @@ class MapPickerState extends State<MapPicker> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.requiredGPS) {
-      _checkGps();
-      _checkGeolocationPermission();
-    }
+   
     return Scaffold(
       body: Builder(builder: (context) {
-        if (_currentPosition == null &&
-            widget.automaticallyAnimateToCurrentLocation &&
-            widget.requiredGPS) {
-          return const Center(child: CircularProgressIndicator());
-        }
-
         return buildMap();
       }),
     );
